@@ -11,7 +11,7 @@
 
     <DockPanel Margin="25">
 
-        <ItemsControl ItemsSource="{Binding MinutesOfDeepSleep}" Background="Yellow">
+        <ItemsControl ItemsSource="{Binding MinutesOfREMSleep}" Background="Black">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" />
@@ -21,6 +21,12 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
+                        <TextBlock Text="{Binding Label}" HorizontalAlignment="Left" FontSize="9" FontWeight="Light" Foreground="White">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="45" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+
                         <Line
                             X1="0" Y1="0" X2="0" Y2="{Binding Value}"
                             StrokeThickness="10"
@@ -28,14 +34,9 @@
                             StrokeStartLineCap="Round" StrokeEndLineCap="Triangle"
                             StrokeDashCap="Round"
                             ToolTip="{Binding Value}"
-                            Width="10" Margin="5"
+                            Width="10" Margin="{Binding Margin}"
                             />
 
-                        <TextBlock Text="{Binding Label}" HorizontalAlignment="Left" FontSize="9" FontWeight="Light">
-                            <TextBlock.LayoutTransform>
-                                <RotateTransform Angle="45" />
-                            </TextBlock.LayoutTransform>
-                        </TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

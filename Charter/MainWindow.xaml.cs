@@ -22,8 +22,10 @@ namespace Charter
             this.DataContext = this;
 
             this.MinutesOfDeepSleep = SampleData.MinutesOfDeepSleep;
+            this.MinutesOfREMSleep = SampleData.MinutesOfREMSleep;
         }
 
         public List<DataPoint> MinutesOfDeepSleep { get; set; }
+        public List<DataPoint> MinutesOfREMSleep { get; set; }
     }
 }
