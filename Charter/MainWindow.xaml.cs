@@ -19,6 +19,11 @@ namespace Charter
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+
+            this.MinutesOfDeepSleep = SampleData.MinutesOfDeepSleep;
         }
+
+        public List<DataPoint> MinutesOfDeepSleep { get; set; }
     }
 }

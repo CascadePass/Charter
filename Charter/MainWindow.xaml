@@ -4,9 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Charter"
+        xmlns:microcharts="using:Microcharts.WinUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Background="AliceBlue"
+        Title="Charter" Height="450" Width="800">
 
-    </Grid>
+    <DockPanel Margin="25">
+
+        <ItemsControl ItemsSource="{Binding MinutesOfDeepSleep}" Background="Yellow">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Line
+                            X1="0" Y1="0" X2="0" Y2="{Binding Value}"
+                            StrokeThickness="10"
+                            Stroke="{Binding Foreground}"
+                            StrokeStartLineCap="Round" StrokeEndLineCap="Triangle"
+                            StrokeDashCap="Round"
+                            ToolTip="{Binding Value}"
+                            Width="10" Margin="5"
+                            />
+
+                        <TextBlock Text="{Binding Label}" HorizontalAlignment="Left" FontSize="9" FontWeight="Light">
+                            <TextBlock.LayoutTransform>
+                                <RotateTransform Angle="45" />
+                            </TextBlock.LayoutTransform>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    </DockPanel>
+    
 </Window>
