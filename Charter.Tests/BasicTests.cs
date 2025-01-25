@@ -31,5 +31,11 @@ namespace Charter.Tests
         {
             Assert.IsFalse(SampleData.MinutesOfDeepSleep.Any(d => d.Foreground == null));
         }
+
+        [TestMethod]
+        public void ExampleFailingTest()
+        {
+            Assert.Fail();
+        }
     }
 }
