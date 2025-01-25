@@ -33,9 +33,9 @@ namespace Charter.Tests
         }
 
         [TestMethod]
-        public void ExampleFailingTest()
+        public void AllDeepSleepPointsHaveALabel()
         {
-            Assert.Fail();
+            Assert.IsFalse(SampleData.MinutesOfDeepSleep.Any(d => d.Label == null));
         }
     }
 }
