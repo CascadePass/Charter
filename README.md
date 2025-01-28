@@ -1,3 +1,3 @@
-![Screenshot 2025-01-24 231559](https://github.com/user-attachments/assets/da22f596-38ee-4955-acb1-8ff390f70543)
+![image](https://github.com/user-attachments/assets/1c5eefc4-027b-47df-858e-7cd69c9ba27a)
 
-Charter is a simple charting project being used to experiment with GitHub Actions.
+Charter is a simple charting project with unit tests and GitHub Actions Continuous Integration.
