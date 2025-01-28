@@ -4,14 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Charter"
-        xmlns:microcharts="using:Microcharts.WinUI"
+        xmlns:microcharts="using:Microcharts.WinUI" xmlns:oxy="http://oxyplot.org/wpf" xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Background="AliceBlue"
         Title="Charter" Height="450" Width="800">
 
     <DockPanel Margin="25">
 
-        <ItemsControl ItemsSource="{Binding MinutesOfREMSleep}" Background="Black">
+        <wpf:CartesianChart Series="{Binding Series}">
+            <wpf:CartesianChart.AxisX>
+                <wpf:Axis Title="Night" Labels="{Binding Labels}" />
+            </wpf:CartesianChart.AxisX>
+            
+            <!--<wpf:CartesianChart.Series>
+                <wpf:LineSeries
+                    Values="{Binding MinutesOfREMSleep}"
+                    Title="REM Sleep"
+                    LineSmoothness="0.5"
+                    StrokeThickness="2"
+                    PointGeometry="{x:Null}" Fill="{x:Null}" Stroke="{x:Null}" />
+            </wpf:CartesianChart.Series>-->
+        </wpf:CartesianChart>
+
+        <!--<ItemsControl ItemsSource="{Binding MinutesOfREMSleep}" Background="Black">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" />
@@ -40,7 +55,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ItemsControl>-->
 
     </DockPanel>
     
