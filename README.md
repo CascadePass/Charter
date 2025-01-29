@@ -1,3 +1,4 @@
-![image](https://github.com/user-attachments/assets/1c5eefc4-027b-47df-858e-7cd69c9ba27a)
+![image](https://github.com/user-attachments/assets/58b1d609-8352-454d-b649-dbacea92e62e)
+
 
 Charter is a simple charting project with unit tests and GitHub Actions Continuous Integration.
