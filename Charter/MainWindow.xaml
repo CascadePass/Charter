@@ -9,21 +9,22 @@
         Background="AliceBlue"
         Title="Charter" Height="450" Width="800">
 
-    <DockPanel Margin="25">
+    <DockPanel>
 
-        <wpf:CartesianChart Series="{Binding Series}">
+        <Expander DockPanel.Dock="Top">
+            <StackPanel>
+                <CheckBox Content="REM (Smartwatch)" IsChecked="{Binding ShowGarminDeepSleep, UpdateSourceTrigger=PropertyChanged}" />
+                <CheckBox Content="REM (EEG)" IsChecked="{Binding ShowMuseDeepSleep, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </Expander>
+
+        <wpf:CartesianChart Series="{Binding DataSeries, UpdateSourceTrigger=Explicit}" LegendLocation="Bottom" Background="AliceBlue">
             <wpf:CartesianChart.AxisX>
                 <wpf:Axis Title="Night" Labels="{Binding Labels}" />
             </wpf:CartesianChart.AxisX>
-            
-            <!--<wpf:CartesianChart.Series>
-                <wpf:LineSeries
-                    Values="{Binding MinutesOfREMSleep}"
-                    Title="REM Sleep"
-                    LineSmoothness="0.5"
-                    StrokeThickness="2"
-                    PointGeometry="{x:Null}" Fill="{x:Null}" Stroke="{x:Null}" />
-            </wpf:CartesianChart.Series>-->
+            <wpf:CartesianChart.AxisY>
+                <wpf:Axis Title="Minutes" />
+            </wpf:CartesianChart.AxisY>
         </wpf:CartesianChart>
 
         <!--<ItemsControl ItemsSource="{Binding MinutesOfREMSleep}" Background="Black">
