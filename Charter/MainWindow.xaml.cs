@@ -23,7 +23,7 @@ namespace Charter
         public MainWindow()
         {
             this.InitializeComponent();
-            this.DataContext = this;
+            this.DataContext = new SleepStagesViewModel();
         }
 
 
@@ -35,29 +35,33 @@ namespace Charter
             {
                 SeriesCollection result = new();
 
-                ColumnSeries deepSleepGarminSeries = new()
+                LineSeries deepSleepGarminSeries = new()
                 {
                     Title = "Deep Sleep (Garmin)",
                     Values = new ChartValues<int>(SampleData.MinutesOfDeepSleep.Where(src => src.Foreground == Brushes.Green).Select(d => d.Value)),
                     Fill = Brushes.Yellow,
+                    PointForeground = Brushes.Green,
+                    PointGeometry = DefaultGeometries.Circle,
                 };
 
-                ColumnSeries remSleepGarminSeries = new()
+                LineSeries remSleepGarminSeries = new()
                 {
                     Title = "REM (Garmin)",
                     Values = new ChartValues<int>(SampleData.MinutesOfREMSleep.Where(src => src.Foreground == Brushes.Green).Select(d => d.Value)),
                     Fill = Brushes.Orange,
+                    PointForeground = Brushes.Gold,
+                    PointGeometry = DefaultGeometries.Circle,
                 };
 
 
-                ColumnSeries deepSleepMuseSeries = new()
+                LineSeries deepSleepMuseSeries = new()
                 {
                     Title = "Deep Sleep (Muse)",
                     Values = new ChartValues<int>(SampleData.MinutesOfDeepSleep.Where(src => src.Foreground == Brushes.Red).Select(d => d.Value)),
                     Fill = Brushes.BlueViolet,
                 };
 
-                ColumnSeries remSleepMuseSeries = new()
+                LineSeries remSleepMuseSeries = new()
                 {
                     Title = "REM (Muse)",
                     Values = new ChartValues<int>(SampleData.MinutesOfREMSleep.Where(src => src.Foreground == Brushes.Red).Select(d => d.Value)),
@@ -66,8 +70,8 @@ namespace Charter
 
                 result.Add(deepSleepGarminSeries);
                 result.Add(remSleepGarminSeries);
-                result.Add(deepSleepMuseSeries);
                 result.Add(remSleepMuseSeries);
+                result.Add(deepSleepMuseSeries);
 
                 return result;
             }
