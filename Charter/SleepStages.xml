@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Chart>
+	<!-- Define the chart type -->
+
+	<DataSeries type="Line" foreground="Blue" pointGeometry="None">
+		<Title>Light Sleep (EEG)</Title>
+		<Values>
+			425, 373, 389, 399, 383, 20, 437, 376, 111, 390, 305, 439, 365, 379, 392, 384, 404, 442, 416, 349,
+		</Values>
+	</DataSeries>
+</Chart>

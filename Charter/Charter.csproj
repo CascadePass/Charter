@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SleepStages.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SleepStages.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
   </ItemGroup>
 
