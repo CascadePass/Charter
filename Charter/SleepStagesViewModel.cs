@@ -42,7 +42,7 @@ namespace Charter
         {
             get
             {
-                List<string> result = new();
+                List<string> result = [];
 
                 DateTime current = new(2025, 1, 8);
 
@@ -52,7 +52,7 @@ namespace Charter
                     current = current.AddDays(1);
                 }
 
-                return result.ToArray();
+                return [.. result];
             }
         }
 
@@ -92,9 +92,8 @@ namespace Charter
                     {
                         Title = "Light Sleep (EEG)",
                         Values = new ChartValues<int>(MuseLightSleepMinutes),
-                        Fill = Brushes.CadetBlue,
-                        PointForeground = Brushes.Blue,
-                        PointGeometry = DefaultGeometries.Diamond,
+                        Foreground = Brushes.Blue,
+                        PointGeometry = DefaultGeometries.None,
                     };
 
                     allDataSeries.Add(lightSleepMuseSeries);
@@ -106,9 +105,8 @@ namespace Charter
                     {
                         Title = "Light Sleep (Smart Watch)",
                         Values = new ChartValues<int>(this.GarminLightSleepMinutes),
-                        Fill = Brushes.Orange,
-                        PointForeground = Brushes.Gold,
-                        PointGeometry = DefaultGeometries.Circle,
+                        Foreground = Brushes.LightBlue,
+                        PointGeometry = DefaultGeometries.None,
                     };
 
                     allDataSeries.Add(lightSleepGarminSeries);
@@ -120,9 +118,8 @@ namespace Charter
                     {
                         Title = "Deep Sleep (Smart Watch)",
                         Values = new ChartValues<int>(this.GarminDeepSleepMinutes),
-                        Fill = Brushes.Yellow,
-                        PointForeground = Brushes.Gold,
-                        PointGeometry = DefaultGeometries.Circle,
+                        Foreground = Brushes.Green,
+                        PointGeometry = DefaultGeometries.None,
                     };
 
                     allDataSeries.Add(deepSleepGarminSeries);
@@ -134,9 +131,9 @@ namespace Charter
                     {
                         Title = "Deep Sleep (EEG)",
                         Values = new ChartValues<int>(MuseDeepSleepMinutes),
-                        Fill = Brushes.BlueViolet,
-                        PointForeground = Brushes.Blue,
-                        PointGeometry = DefaultGeometries.Diamond,
+                        Foreground = Brushes.DarkGreen,
+                        //PointForeground = Brushes.Blue,
+                        PointGeometry = DefaultGeometries.None,
                     };
 
                     allDataSeries.Add(deepSleepMuseSeries);
