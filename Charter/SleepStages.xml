@@ -9,4 +9,25 @@
 			425, 373, 389, 399, 383, 20, 437, 376, 111, 390, 305, 439, 365, 379, 392, 384, 404, 442, 416, 349,
 		</Values>
 	</DataSeries>
+
+	<DataSeries type="Line" foreground="Green" pointGeometry="None">
+		<Title>Deep Sleep (EEG)</Title>
+		<Values>
+			12, 41, 30, 0, 0, 0, 6, 2, 0, 41, 53, 0, 37, 42, 33, 0, 0, 42, 0, 90,
+		</Values>
+	</DataSeries>
+
+	<DataSeries type="Line" foreground="Red" pointGeometry="None">
+		<Title>Deep Sleep (Smart Watch)</Title>
+		<Values>
+			83, 115, 61, 54, 40, 118, 84, 46, 59, 124, 66, 86, 69, 117, 74, 108, 110, 82, 82, 66,
+		</Values>
+	</DataSeries>
+
+	<DataSeries type="Line" foreground="Red" pointGeometry="None">
+		<Title>Deep Sleep (EEG)</Title>
+		<Values>
+			12, 41, 30, 0, 0, 0, 6, 2, 0, 41, 53, 0, 37, 42, 33, 0, 0, 42, 0, 90,
+		</Values>
+	</DataSeries>
 </Chart>
