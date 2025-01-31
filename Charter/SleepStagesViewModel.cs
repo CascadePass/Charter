@@ -34,6 +34,10 @@ namespace Charter
 
         public int[] MuseDeepSleepMinutes => new int[] { 12, 41, 30, 0, 0, 0, 6, 2, 0, 41, 53, 0, 37, 42, 33, 0, 0, 42, 0, 90, };
 
+        public int[] GarminLightSleepMinutes => new int[] { 326, 301, 369, 414, 350, 294, 283, 354, 446, 299, 380, 364, 365, 334, 408, 412, 305, 383, 287, 397, };
+
+        public int[] MuseLightSleepMinutes => new int[] { 425, 373, 389, 399, 383, 20, 437, 376, 111, 390, 305, 439, 365, 379, 392, 384, 404, 442, 416, 349, };
+
         public string[] Labels
         {
             get
@@ -64,18 +68,58 @@ namespace Charter
             set => this.SetPropertyValue<bool>(ref this.showMuseDeep, value, new string[] { nameof(this.ShowMuseDeepSleep), nameof(this.DataSeries) });
         }
 
+        public bool ShowGarminLightSleep
+        {
+            get => this.showGarminLight;
+            set => this.SetPropertyValue<bool>(ref this.showGarminLight, value, new string[] { nameof(this.ShowGarminLightSleep), nameof(this.DataSeries) });
+        }
+
+        public bool ShowMuseLightSleep
+        {
+            get => this.showMuseLight;
+            set => this.SetPropertyValue<bool>(ref this.showMuseLight, value, new string[] { nameof(this.ShowMuseLightSleep), nameof(this.DataSeries) });
+        }
+
         public SeriesCollection DataSeries
         {
             get
             {
                 SeriesCollection allDataSeries = new();
 
+                if (this.ShowMuseLightSleep)
+                {
+                    LineSeries lightSleepMuseSeries = new()
+                    {
+                        Title = "Light Sleep (EEG)",
+                        Values = new ChartValues<int>(MuseLightSleepMinutes),
+                        Fill = Brushes.CadetBlue,
+                        PointForeground = Brushes.Blue,
+                        PointGeometry = DefaultGeometries.Diamond,
+                    };
+
+                    allDataSeries.Add(lightSleepMuseSeries);
+                }
+
+                if (this.ShowGarminLightSleep)
+                {
+                    LineSeries lightSleepGarminSeries = new()
+                    {
+                        Title = "Light Sleep (Smart Watch)",
+                        Values = new ChartValues<int>(this.GarminLightSleepMinutes),
+                        Fill = Brushes.Orange,
+                        PointForeground = Brushes.Gold,
+                        PointGeometry = DefaultGeometries.Circle,
+                    };
+
+                    allDataSeries.Add(lightSleepGarminSeries);
+                }
+
                 if (this.ShowGarminDeepSleep)
                 {
                     LineSeries deepSleepGarminSeries = new()
                     {
                         Title = "Deep Sleep (Smart Watch)",
-                        Values = new ChartValues<int> (this.GarminDeepSleepMinutes),
+                        Values = new ChartValues<int>(this.GarminDeepSleepMinutes),
                         Fill = Brushes.Yellow,
                         PointForeground = Brushes.Gold,
                         PointGeometry = DefaultGeometries.Circle,
